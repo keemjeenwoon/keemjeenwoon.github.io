@@ -1,0 +1,20 @@
+---
+layout: default
+title: Home
+---
+
+<h1>jinwon's blog</h1>
+
+<p>take your time.</p>
+
+<hr>
+
+<h2>Recent Posts</h2>
+
+<ul>
+{% for post in site.posts %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%Y-%m-%d" }}
+  </li>
+{% endfor %}
+</ul>
