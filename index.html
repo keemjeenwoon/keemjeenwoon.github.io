@@ -6,10 +6,9 @@ title: Home
 <img src="/assets/images/IMG_6520.jpg" alt="" style="display: block; margin: 0 auto; max-width: 300px;">
 
 <ul style="list-style: none; padding-left: 0;">
-{% assign symbols = "●,■,▲,■" | split: "," %}
 {% for post in site.posts %}
   <li>
-    {{ symbols[forloop.index0 | modulo: 4] }} <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%Y-%m-%d" }}
+    <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%Y-%m-%d" }}
   </li>
 {% endfor %}
 </ul>
