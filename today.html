@@ -1,19 +1,21 @@
 ---
 layout: default
-title: "오늘 하루를 보여드립니다"
+title: "▥▨▤▧"
 ---
 
-<button onclick="showToday()" style="width: 50px; height: 50px; font-size: 20px; border: 2px solid #000; background: white; cursor: pointer;">???</button>
+<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <button onclick="showToday()" style="width: 50px; height: 50px; font-size: 20px; border: 2px solid #000; background: white; cursor: pointer;">□</button>
+</div>
 
-<div id="result" style="margin-top: 20px; font-size: 12pt; line-height: 1.6;"></div>
+<div id="result" style="text-align: center; margin-top: 300px; font-size: 12pt; line-height: 1.6;"></div>
 
 <script>
 function showToday() {
   var results = [
-    "동그란 하루(●) : 둥글둥글하게 잘 굴러가는 하루",
-    "네모난 하루 (■) : 네 방향의 직각으로 안정적인 하루",
-    "세모난 하루 (▲) : 직관과 엣지가 살아나는 하루",
-    "엄청난 하루 (♥) : 사랑이 가득해지는 하루"
+    "동그란 하루(●)<br>둥글둥글하게 잘 굴러가는 하루",
+    "네모난 하루 (■)<br>네 방향의 직각으로 안정적인 하루",
+    "세모난 하루 (▲)<br>직관과 엣지가 살아나는 하루",
+    "엄청난 하루 (♥)<br>사랑이 가득해지는 하루"
   ];
   
   var random = Math.floor(Math.random() * 4);
