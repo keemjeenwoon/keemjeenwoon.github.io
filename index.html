@@ -12,7 +12,7 @@ title: Home
 </div>
 
 <ul style="list-style: none; padding-left: 0;">
-{% for post in site.posts reversed %}
+{% for post in site.posts %}
   <li>
     <a href="{{ post.url }}">
       {% assign index = forloop.index | minus: 1 | modulo: 4 %}
