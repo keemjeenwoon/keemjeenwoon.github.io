@@ -15,7 +15,8 @@ title: Home
 {% for post in site.posts %}
   <li>
     <a href="{{ post.url }}">
-      {% assign index = forloop.index | minus: 1 | modulo: 4 %}
+      {% assign total = site.posts.size %}
+      {% assign index = total | minus: forloop.index | modulo: 4 %} 
       {% if index == 0 %}●{% elsif index == 1 %}■{% elsif index == 2 %}▲{% else %}■{% endif %}
       {{ post.title }}
     </a> - {{ post.date | date: "%Y-%m-%d" }}
