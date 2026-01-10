@@ -8,14 +8,20 @@
     <link href="https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css">
   <style>
     body {
-        font-family: 'Spoqa Han Sans Neo', -apple-system, sans-serif;
-        font-size: 10pt;
-        max-width: 360px;
-        margin: 0px 0px 0px calc((100vw - 720px) / 2 + 10px);
-        padding: 0 10px;
-        background-color: #ffffff;
-        color: #000000;
-        line-height: 1.5;
+    font-family: 'Spoqa Han Sans Neo', -apple-system, sans-serif;
+    font-size: 10pt;
+    max-width: 400px;
+    margin: 0px auto;
+    padding: 0 10px;
+    background-color: #ffffff;
+    color: #000000;
+    line-height: 1.5;
+    }
+
+    @media (min-width: 768px) {
+        body {
+            margin: 0px 0px 0px calc((100vw - 720px) / 2 + 10px);
+        }
     }
     a {
         color: #000000;
