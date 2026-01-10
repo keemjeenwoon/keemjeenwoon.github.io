@@ -8,20 +8,17 @@ title: Home
 </h1>
 
 <div style="overflow: hidden; width: 80px; margin: 5px 0 0 0; font-size: 11pt;">
-  <div style="display: inline-block; white-space: nowrap; animation: marquee 4s linear infinite;">
-    <span style="display: inline-block;">
-      <a href="/today" style="text-decoration: none; color: #000000;">● ■ ▲ ■&nbsp;&nbsp;&nbsp;</a>
-    </span>
-    <span style="display: inline-block;">
-      <a href="/today" style="text-decoration: none; color: #000000;">● ■ ▲ ■&nbsp;&nbsp;&nbsp;</a>
-    </span>
+  <div style="display: flex; animation: marquee-rtl 6s linear infinite;">
+    <a href="/today" style="text-decoration: none; color: #000000; flex-shrink: 0;">● ■ ▲ ■&nbsp;&nbsp;&nbsp;</a>
+    <a href="/today" style="text-decoration: none; color: #000000; flex-shrink: 0;">● ■ ▲ ■&nbsp;&nbsp;&nbsp;</a>
+    <a href="/today" style="text-decoration: none; color: #000000; flex-shrink: 0;">● ■ ▲ ■&nbsp;&nbsp;&nbsp;</a>
   </div>
 </div>
 
 <style>
-@keyframes marquee {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
+@keyframes marquee-rtl {
+  from { transform: translateX(-66.66%); }
+  to { transform: translateX(0); }
 }
 </style>
 
