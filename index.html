@@ -7,7 +7,7 @@ title: Home
   <a href="/" style="text-decoration: none; color: #000000;">김진원의<br>이모저모</a>
 </h1>
 
-<div style="overflow: hidden; width: 120px; margin: 5px 0 0 0; font-size: 11pt;">
+<div style="overflow: hidden; width: 75px; margin: 5px 0 0 0; font-size: 11pt;">
   <div style="display: inline-block; white-space: nowrap;">
     <span style="display: inline-block; animation: slide 8s linear infinite;">
       ● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;
@@ -21,24 +21,25 @@ title: Home
   100% { transform: translateX(0); }
 }
 .month-group {
-  margin: 10px 0;
+  margin: 5px 0 0 0;
 }
 .month-title {
   cursor: pointer;
   font-size: 10pt;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 .post-list {
   display: none;
-  padding-left: 20px;
+  padding-left: 0;
   list-style: none;
+  margin-top: 3px;
 }
 .post-list.active {
   display: block;
 }
 .post-list li {
-  font-size: 10pt;
-  margin-bottom: 5px;
+  font-size: 12pt;
+  margin-bottom: 2px;
 }
 </style>
 
@@ -50,11 +51,11 @@ title: Home
     [{{ month.name }}]
   </div>
   <ul class="post-list">
-    {% for post in month.items reversed %}
+    {% for post in month.items %}
     <li>
       <a href="{{ post.url }}">
         {% assign total = site.posts.size %}
-        {% assign index = forloop.index | minus: 1 | modulo: 4 %}
+        {% assign index = total | minus: forloop.index | modulo: 4 %}
         {% if index == 0 %}●{% elsif index == 1 %}■{% elsif index == 2 %}▲{% else %}■{% endif %}
         {{ post.title }}
       </a> - {{ post.date | date: "%Y-%m-%d" }}
