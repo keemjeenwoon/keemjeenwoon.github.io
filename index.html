@@ -43,14 +43,14 @@ title: Home
 </ul>
 
 <div style="text-align: right; margin-top: 40px;">
-  <h2 style="font-size: 18pt; font-weight: normal; margin-bottom: 5px; line-height: 1.1;">
+  <h2 style="font-size: 9pt; font-weight: normal; margin-bottom: 5px; line-height: 1.1;">
     portraits<br>of<br>contemporary<br>creators
   </h2>
   
   <div style="overflow: hidden; width: 75px; margin: 5px 0 5px auto; font-size: 11pt;">
     <div style="display: inline-block; white-space: nowrap;">
       <span style="display: inline-block; animation: slideReverse 15s linear infinite;">
-        ♤ ♡ ♧ ♢&nbsp;&nbsp;♤ ♡ ♧ ♢&nbsp;&nbsp;♤ ♡ ♧ ♢&nbsp;&nbsp;♤ ♡ ♧ ♢&nbsp;&nbsp;
+        ✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;
       </span>
     </div>
   </div>
@@ -62,7 +62,7 @@ title: Home
       <a href="{{ post.url }}">
         {% assign total = site.posts.size %}
         {% assign index = total | minus: forloop.index | modulo: 4 %} 
-        {% if index == 0 %}♤{% elsif index == 1 %}♡{% elsif index == 2 %}♧{% else %}♢{% endif %}
+        {% if index == 0 %}✦{% elsif index == 1 %}✧{% elsif index == 2 %}✦{% else %}✧{% endif %}
         {{ post.title }}
       </a>
     </li>
