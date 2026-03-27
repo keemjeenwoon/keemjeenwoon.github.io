@@ -24,6 +24,7 @@ title: Home
 
 <ul style="list-style: none; padding-left: 0; margin-top: 1px;">
 {% for post in site.posts %}
+  {% unless post.categories contains 'pocc' %}
   <li>
     <a href="{{ post.url }}">
       {% assign total = site.posts.size %}
@@ -32,5 +33,24 @@ title: Home
       {{ post.title }}
     </a> - {{ post.date | date: "%Y-%m-%d" }}
   </li>
+  {% endunless %}
 {% endfor %}
 </ul>
+
+<div style="text-align: right; margin-top: 40px;">
+  <h2 style="font-size: 14pt; font-weight: normal; margin-bottom: 5px;">POCC</h2>
+  <ul style="list-style: none; padding-left: 0; margin-top: 1px;">
+  {% for post in site.posts %}
+    {% if post.categories contains 'pocc' %}
+    <li>
+      <a href="{{ post.url }}">
+        {% assign total = site.posts.size %}
+        {% assign index = total | minus: forloop.index | modulo: 4 %} 
+        {% if index == 0 %}●{% elsif index == 1 %}■{% elsif index == 2 %}▲{% else %}■{% endif %}
+        {{ post.title }}
+      </a> - {{ post.date | date: "%Y-%m-%d" }}
+    </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</div>
