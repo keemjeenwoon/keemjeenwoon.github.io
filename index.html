@@ -31,14 +31,20 @@ title: Home
       {% assign index = total | minus: forloop.index | modulo: 4 %} 
       {% if index == 0 %}●{% elsif index == 1 %}■{% elsif index == 2 %}▲{% else %}■{% endif %}
       {{ post.title }}
-    </a> - {{ post.date | date: "%Y-%m-%d" }}
+    </a>
   </li>
   {% endunless %}
 {% endfor %}
 </ul>
 
 <div style="text-align: right; margin-top: 40px;">
-  <h2 style="font-size: 14pt; font-weight: normal; margin-bottom: 5px;">POCC</h2>
+  <div style="overflow: hidden; width: 280px; margin: 5px 0 5px auto; font-size: 11pt;">
+    <div style="display: inline-block; white-space: nowrap;">
+      <span style="display: inline-block; animation: slide 8s linear infinite;">
+        portraits of contemporary creators&nbsp;&nbsp;portraits of contemporary creators&nbsp;&nbsp;portraits of contemporary creators&nbsp;&nbsp;
+      </span>
+    </div>
+  </div>
   <ul style="list-style: none; padding-left: 0; margin-top: 1px;">
   {% for post in site.posts %}
     {% if post.categories contains 'pocc' %}
@@ -48,7 +54,7 @@ title: Home
         {% assign index = total | minus: forloop.index | modulo: 4 %} 
         {% if index == 0 %}●{% elsif index == 1 %}■{% elsif index == 2 %}▲{% else %}■{% endif %}
         {{ post.title }}
-      </a> - {{ post.date | date: "%Y-%m-%d" }}
+      </a>
     </li>
     {% endif %}
   {% endfor %}
