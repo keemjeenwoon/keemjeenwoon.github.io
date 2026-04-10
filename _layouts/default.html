@@ -1,78 +1,130 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site.title }}</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-    <link href="https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css">
-  <style>
-    body {
-    font-family: 'Spoqa Han Sans Neo', -apple-system, sans-serif;
-    font-size: 11pt;
-    max-width: 390px;
-    margin: 0px;
-    padding: 0 10px 0 10px;
-    background-color: #ffffff;
-    color: #000000;
-    line-height: 1.5;
-    }
+---
+layout: default
+title: Home
+---
 
-    @media (min-width: 768px) {
-        body {
-            max-width: 320px;
-            margin: 0px 0px 0px calc((100vw - 720px) / 2 + 10px);
-        }
-    }
+<style>
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  padding: 0 10px 0 10px !important;
+}
 
-    img {
-        max-width: 393px;
-        width: 100%;
-        height: auto;
-    }
+a, a:link, a:visited, a:hover, a:active {
+  color: #ffffff !important;
+  text-decoration: none;
+}
 
-    a {
-        color: #000000;
-        text-decoration: none;
-    }
-    a:visited {
-        color: #000000;
-    }
-    a:active {
-        color: #ffffff;
-    }
-    h1 {
-        font-size: 18pt;
-        font-weight: bold;
-        margin: 20px 0 10px 0;
-    }
-    h2 {
-        font-size: 14pt;
-        font-weight: bold;
-        margin: 15px 0 10px 0;
-    }
-    ul {
-        list-style: none;
-        padding-left: 0;
-        counter-reset: post-counter;
-    }
-    li {
-        counter-increment: post-counter;
-        font-size: 11pt;
-        margin-bottom: 1px;
-    }
+a:hover {
+  opacity: 0.7;
+}
+
+.two-col {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.col-left {
+  flex: 1;
+  padding-right: 10px;
+  border-right: 2px solid #ffffff;
+}
+
+.col-right {
+  flex: 1;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.two-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.two-col li {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.two-col h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.col-right ul {
+  text-align: left;
+}
+
+.col-right li {
+  text-align: left;
+}
+
+@keyframes slide {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideReverse {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 </style>
-</head>
-<body>    
-    {% if page.title != "Home" %}
-    <div style="padding: 0 0 0 0;">
-        <div style="margin: 10px 0 1px 0;">
-            <a href="/" style="text-decoration: none; color: #000000; font-size: 10pt; line-height: 1.5;">◀</a>
-        </div>
-        {{ content }}
+
+<div class="two-col" style="margin-top: 10px;">
+  <div class="col-left">
+    <h1 style="font-size: 18pt; font-weight: normal; line-height: 1.1; margin: 0 0 5px 0;">
+      <a href="/">김진본의<br>이모저모</a>
+    </h1>
+    <div style="overflow: hidden; width: 75px; margin: 0 0 5px 0; font-size: 11pt;">
+      <div style="display: inline-block; white-space: nowrap;">
+        <span style="display: inline-block; animation: slide 8s linear infinite;">
+          ● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;
+        </span>
+      </div>
     </div>
-    {% else %}
-        {{ content }}
-    {% endif %}
-</body>
-</html>
+    <ul>
+    {% for post in site.posts %}
+      {% unless post.categories contains 'pocc' %}
+      <li>
+        <a href="{{ post.url }}">
+          {% assign total = site.posts.size %}
+          {% assign index = total | minus: forloop.index | modulo: 4 %}
+          {% if index == 0 %}●{% elsif index == 1 %}■{% elsif index == 2 %}▲{% else %}■{% endif %}
+          {{ post.title }}
+        </a>
+      </li>
+      {% endunless %}
+    {% endfor %}
+    </ul>
+  </div>
+
+  <div class="col-right">
+    <h2 style="font-size: 15pt; font-weight: bold; line-height: 1.1; color: #ffffff;">
+      portraits of<br>contemporary<br>creators
+    </h2>
+    <div style="overflow: hidden; width: 100px; margin: 5px 0 5px 0; font-size: 14pt;">
+      <div style="display: inline-block; white-space: nowrap;">
+        <span style="display: inline-block; animation: slide 15s linear infinite;">
+          ✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;
+        </span>
+      </div>
+    </div>
+    <ul>
+    {% for post in site.posts %}
+      {% if post.categories contains 'pocc' %}
+      <li>
+        <a href="{{ post.url }}">
+          {% assign total = site.posts.size %}
+          {% assign index = total | minus: forloop.index | modulo: 4 %}
+          {% if index == 0 %}✧{% elsif index == 1 %}✦{% elsif index == 2 %}✧{% else %}✦{% endif %}
+          {{ post.title }}
+        </a>
+      </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </div>
+</div>
