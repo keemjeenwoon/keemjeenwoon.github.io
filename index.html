@@ -7,7 +7,7 @@ title: Home
 body {
   background-color: #000000 !important;
   color: #ffffff !important;
-  padding-right: 0 !important;
+  padding: 0 0 0 10px !important;
 }
 
 a, a:link, a:visited, a:hover, a:active {
@@ -34,9 +34,13 @@ a:hover {
 .col-right {
   flex: 1;
   padding-left: 10px;
-  padding-top: 0;
-  margin-top: 0;
   text-align: right;
+}
+
+.two-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 @keyframes slide {
@@ -62,9 +66,9 @@ a:hover {
   </div>
 </div>
 
-<div class="two-col" style="margin-top: 0;">
+<div class="two-col">
   <div class="col-left">
-    <ul style="list-style: none; padding-left: 0; margin: 0;">
+    <ul>
     {% for post in site.posts %}
       {% unless post.categories contains 'pocc' %}
       <li>
@@ -93,7 +97,7 @@ a:hover {
       </div>
     </div>
 
-    <ul style="list-style: none; padding-left: 0; margin: 0;">
+    <ul>
     {% for post in site.posts %}
       {% if post.categories contains 'pocc' %}
       <li>
