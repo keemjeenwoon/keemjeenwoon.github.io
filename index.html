@@ -22,24 +22,38 @@ a:hover {
   display: flex;
   gap: 0;
   align-items: flex-start;
+  margin: 0;
+  padding: 0;
 }
 
 .col-left {
   flex: 1;
   padding-right: 10px;
   border-right: 1px solid #ffffff;
+  margin: 0;
 }
 
 .col-right {
   flex: 1;
   padding-left: 10px;
   text-align: right;
+  margin: 0;
 }
 
 .two-col ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.two-col li {
+  margin: 0;
+  padding: 0;
+}
+
+.two-col h2 {
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes slide {
@@ -59,16 +73,15 @@ a:hover {
   <a href="/" style="text-decoration: none; color: #ffffff;">김진본의<br>이모저모</a>
 </h1>
 
-<div style="overflow: hidden; width: 75px; margin: 5px 0 0 0; font-size: 11pt;">
-  <div style="display: inline-block; white-space: nowrap;">
-    <span style="display: inline-block; animation: slide 8s linear infinite;">
-      ● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;
-    </span>
-  </div>
-</div>
-
-<div class="two-col">
+<div class="two-col" style="margin-top: 5px;">
   <div class="col-left">
+    <div style="overflow: hidden; width: 75px; margin: 0 0 1px 0; font-size: 11pt;">
+      <div style="display: inline-block; white-space: nowrap;">
+        <span style="display: inline-block; animation: slide 8s linear infinite;">
+          ● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;
+        </span>
+      </div>
+    </div>
     <ul>
     {% for post in site.posts %}
       {% unless post.categories contains 'pocc' %}
@@ -86,10 +99,9 @@ a:hover {
   </div>
 
   <div class="col-right">
-    <h2 style="font-size: 9pt; font-weight: bold; margin: 0; line-height: 1.1; color: #ffffff;">
+    <h2 style="font-size: 9pt; font-weight: bold; line-height: 1.1; color: #ffffff;">
       portraits<br>of<br>contemporary<br>creators
     </h2>
-
     <div style="overflow: hidden; width: 100px; margin: 5px 0 5px auto; font-size: 14pt;">
       <div style="display: inline-block; white-space: nowrap;">
         <span style="display: inline-block; animation: slideReverse 15s linear infinite;">
@@ -97,7 +109,6 @@ a:hover {
         </span>
       </div>
     </div>
-
     <ul>
     {% for post in site.posts %}
       {% if post.categories contains 'pocc' %}
