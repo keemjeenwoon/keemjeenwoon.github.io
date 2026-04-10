@@ -7,6 +7,7 @@ title: Home
 body {
   background-color: #000000 !important;
   color: #ffffff !important;
+  padding-right: 0 !important;
 }
 
 a, a:link, a:visited, a:hover, a:active {
@@ -21,6 +22,7 @@ a:hover {
 .two-col {
   display: flex;
   gap: 0;
+  align-items: flex-start;
 }
 
 .col-left {
@@ -32,6 +34,8 @@ a:hover {
 .col-right {
   flex: 1;
   padding-left: 10px;
+  padding-top: 0;
+  margin-top: 0;
   text-align: right;
 }
 
@@ -50,7 +54,7 @@ a:hover {
   <a href="/" style="text-decoration: none; color: #ffffff;">김진본의<br>이모저모</a>
 </h1>
 
-<div style="overflow: hidden; width: 75px; margin: 5px 0 1px 0; font-size: 11pt;">
+<div style="overflow: hidden; width: 75px; margin: 5px 0 0 0; font-size: 11pt;">
   <div style="display: inline-block; white-space: nowrap;">
     <span style="display: inline-block; animation: slide 8s linear infinite;">
       ● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;
@@ -58,9 +62,9 @@ a:hover {
   </div>
 </div>
 
-<div class="two-col">
+<div class="two-col" style="margin-top: 0;">
   <div class="col-left">
-    <ul style="list-style: none; padding-left: 0; margin-top: 0;">
+    <ul style="list-style: none; padding-left: 0; margin: 0;">
     {% for post in site.posts %}
       {% unless post.categories contains 'pocc' %}
       <li>
@@ -89,7 +93,7 @@ a:hover {
       </div>
     </div>
 
-    <ul style="list-style: none; padding-left: 0; margin-top: 1px;">
+    <ul style="list-style: none; padding-left: 0; margin: 0;">
     {% for post in site.posts %}
       {% if post.categories contains 'pocc' %}
       <li>
