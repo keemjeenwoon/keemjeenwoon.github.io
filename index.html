@@ -34,7 +34,7 @@ a:hover {
 .col-right {
   flex: 1;
   padding-left: 10px;
-  text-align: left;
+  text-align: right;
 }
 
 .two-col ul {
@@ -46,20 +46,12 @@ a:hover {
 .two-col li {
   margin: 0;
   padding: 0;
-  text-align: left;
 }
 
 .two-col h2 {
   margin: 0;
   padding: 0;
-}
-
-.col-right ul {
-  text-align: left;
-}
-
-.col-right li {
-  text-align: left;
+  text-align: right;
 }
 
 @keyframes slide {
@@ -102,10 +94,10 @@ a:hover {
   </div>
 
   <div class="col-right">
-    <h2 style="font-size: 11pt; font-weight: bold; line-height: 1.1; color: #ffffff;">
-      portraits of<br>contemporary<br>creators
+    <h2 style="font-size: 18pt; font-weight: bold; line-height: 1.1; color: #ffffff; text-align: right;">
+      portraits of<br>contemporary creators
     </h2>
-    <div style="overflow: hidden; width: 100px; margin: 5px 0 5px 0; font-size: 14pt;">
+    <div style="overflow: hidden; width: 100px; margin: 5px 0 5px auto; font-size: 14pt;">
       <div style="display: inline-block; white-space: nowrap;">
         <span style="display: inline-block; animation: slide 15s linear infinite;">
           ✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;
@@ -119,7 +111,7 @@ a:hover {
         <a href="{{ post.url }}">
           {% assign total = site.posts.size %}
           {% assign index = total | minus: forloop.index | modulo: 4 %}
-          {% if index == 0 %}✦{% elsif index == 1 %}✧{% elsif index == 2 %}✦{% else %}✧{% endif %}
+          {% if index == 0 %}✧{% elsif index == 1 %}✦{% elsif index == 2 %}✧{% else %}✦{% endif %}
           {{ post.title }}
         </a>
       </li>
