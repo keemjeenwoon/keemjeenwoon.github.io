@@ -59,9 +59,21 @@ a:hover {
 }
 </style>
 
-<div class="two-col" style="margin-top: 1px;">
+<div class="two-col" style="margin-top: 10px;">
   <div class="col-left">
-    <ul style="list-style: none; padding-left: 0; margin-top: 0;">
+    <h1 style="text-align: left; margin: 0 0 0 0; font-size: 18pt; font-weight: normal; line-height: 1.1;">
+      <a href="/" style="text-decoration: none; color: #ffffff;">김진본의<br>이모저모</a>
+    </h1>
+
+    <div style="overflow: hidden; width: 75px; margin: 5px 0 0 0; font-size: 11pt;">
+      <div style="display: inline-block; white-space: nowrap;">
+        <span style="display: inline-block; animation: slide 8s linear infinite;">
+          ● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;
+        </span>
+      </div>
+    </div>
+
+    <ul style="list-style: none; padding-left: 0; margin-top: 1px;">
     {% for post in site.posts %}
       {% unless post.categories contains 'pocc' %}
       <li>
@@ -77,12 +89,12 @@ a:hover {
     </ul>
   </div>
 
-  <div class="col-right">
+  <div class="col-right" style="text-align: right;">
     <h2 style="font-size: 9pt; font-weight: bold; margin: 0 0 5px 0; line-height: 1.1; color: #ffffff;">
       portraits<br>of<br>contemporary<br>creators
     </h2>
 
-    <div style="overflow: hidden; width: 100px; margin: 5px 0 5px 0; font-size: 14pt;">
+    <div style="overflow: hidden; width: 100px; margin: 5px 0 5px 0; font-size: 14pt; margin-left: auto;">
       <div style="display: inline-block; white-space: nowrap;">
         <span style="display: inline-block; animation: slideReverse 15s linear infinite;">
           ✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;
