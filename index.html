@@ -7,6 +7,7 @@ title: Home
 body {
   background-color: #000000 !important;
   color: #ffffff !important;
+  padding: 0 !important;
 }
 
 a, a:link, a:visited, a:hover, a:active {
@@ -22,38 +23,25 @@ a:hover {
   display: flex;
   gap: 0;
   align-items: flex-start;
-  margin: 0;
-  padding: 0;
+  height: 100vh;
 }
 
 .col-left {
   flex: 1;
-  padding-right: 10px;
+  padding: 10px 10px 10px 10px;
   border-right: 1px solid #ffffff;
-  margin: 0;
 }
 
 .col-right {
   flex: 1;
-  padding-left: 10px;
+  padding: 10px 0 10px 10px;
   text-align: right;
-  margin: 0;
 }
 
-.two-col ul {
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.two-col li {
-  margin: 0;
-  padding: 0;
-}
-
-.two-col h2 {
-  margin: 0;
-  padding: 0;
 }
 
 @keyframes slide {
@@ -67,15 +55,12 @@ a:hover {
 }
 </style>
 
-<div style="margin-right: -10px;">
-
-<h1 style="text-align: left; margin: 10px 0 0 0; font-size: 18pt; font-weight: normal; line-height: 1.1;">
-  <a href="/" style="text-decoration: none; color: #ffffff;">김진본의<br>이모저모</a>
-</h1>
-
-<div class="two-col" style="margin-top: 5px;">
+<div class="two-col">
   <div class="col-left">
-    <div style="overflow: hidden; width: 75px; margin: 0 0 1px 0; font-size: 11pt;">
+    <h1 style="font-size: 18pt; font-weight: normal; line-height: 1.1; margin: 0 0 5px 0;">
+      <a href="/">김진본의<br>이모저모</a>
+    </h1>
+    <div style="overflow: hidden; width: 75px; margin: 0 0 5px 0; font-size: 11pt;">
       <div style="display: inline-block; white-space: nowrap;">
         <span style="display: inline-block; animation: slide 8s linear infinite;">
           ● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;
@@ -99,7 +84,7 @@ a:hover {
   </div>
 
   <div class="col-right">
-    <h2 style="font-size: 9pt; font-weight: bold; line-height: 1.1; color: #ffffff;">
+    <h2 style="font-size: 9pt; font-weight: bold; margin: 0 0 5px 0; line-height: 1.1; color: #ffffff;">
       portraits<br>of<br>contemporary<br>creators
     </h2>
     <div style="overflow: hidden; width: 100px; margin: 5px 0 5px auto; font-size: 14pt;">
@@ -124,6 +109,4 @@ a:hover {
     {% endfor %}
     </ul>
   </div>
-</div>
-
 </div>
