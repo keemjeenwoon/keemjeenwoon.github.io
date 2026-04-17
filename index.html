@@ -15,29 +15,31 @@
         body {
             font-family: 'Arial Unicode MS', Arial, sans-serif;
             font-size: 16pt;
+            max-width: 320px;
+            margin: 0px;
+            padding: 0 10px;
             background: #ffffff;
             color: #000000;
             line-height: 1.6;
         }
         
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 20px;
+        @media (min-width: 768px) {
+            body {
+                margin: 0px 0px 0px calc((100vw - 720px) / 2 + 10px);
+            }
         }
         
         /* 헤더 */
         .header {
             text-align: center;
-            padding: 30px 0;
+            padding: 10px 0 5px;
             border-bottom: 2px solid #000;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
-        .header h1 {
-            font-size: 48pt;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+        .header img {
+            max-width: 150px;
+            height: auto;
         }
         
         /* 글 목록 */
@@ -47,8 +49,8 @@
         
         .post-item {
             display: flex;
-            gap: 20px;
-            padding: 25px 0;
+            gap: 15px;
+            padding: 20px 0;
             border-bottom: 1px solid #e0e0e0;
             text-decoration: none;
             color: inherit;
@@ -70,22 +72,19 @@
         }
         
         .post-excerpt {
-            font-size: 14pt;
+            font-size: 13pt;
             color: #666;
             line-height: 1.5;
         }
         
         .post-thumbnail {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
             flex-shrink: 0;
         }
         
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 36pt;
-            }
             .post-thumbnail {
                 width: 80px;
                 height: 80px;
@@ -94,26 +93,24 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 헤더 -->
-        <div class="header">
-            <h1>3355</h1>
-        </div>
-        
-        <!-- 글 목록 -->
-        <ul class="post-list">
-            {% for post in site.posts %}
-            <a href="{{ post.url }}" class="post-item">
-                <div class="post-content">
-                    <div class="post-title">{{ post.title }}</div>
-                    <div class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
-                </div>
-                {% if post.thumbnail %}
-                <img src="{{ post.thumbnail }}" alt="" class="post-thumbnail">
-                {% endif %}
-            </a>
-            {% endfor %}
-        </ul>
+    <!-- 헤더 -->
+    <div class="header">
+        <img src="/assets/images/3355-logo.png" alt="3355">
     </div>
+    
+    <!-- 글 목록 -->
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <a href="{{ post.url }}" class="post-item">
+            <div class="post-content">
+                <div class="post-title">{{ post.title }}</div>
+                <div class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
+            </div>
+            {% if post.thumbnail %}
+            <img src="{{ post.thumbnail }}" alt="" class="post-thumbnail">
+            {% endif %}
+        </a>
+        {% endfor %}
+    </ul>
 </body>
 </html>
