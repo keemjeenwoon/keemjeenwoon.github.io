@@ -15,16 +15,16 @@
         }
         
         body {
-        font-family: 'Arial Unicode MS', Arial, sans-serif;
-        font-size: 16pt;
-        max-width: 390px;
-        margin: 0px;
-        padding: 0 10px;
-        background: #ffffff;
-        color: #000000;
-        line-height: 1.6;
+            font-family: 'Arial Unicode MS', Arial, sans-serif;
+            font-size: 16pt;
+            max-width: 390px;
+            margin: 0px;
+            padding: 0 10px;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
         }
-
+        
         @media (min-width: 768px) {
             body {
                 max-width: 390px;
@@ -32,7 +32,6 @@
             }
         }
         
-        /* 헤더 */
         .header {
             text-align: center;
             padding: 10px 0 5px;
@@ -40,12 +39,6 @@
             margin-bottom: 20px;
         }
         
-        .header img {
-            max-width: 150px;
-            height: auto;
-        }
-        
-        /* 글 목록 */
         .post-list {
             list-style: none;
         }
@@ -96,23 +89,23 @@
     </style>
 </head>
 <body>
-    <!-- 헤더 -->
     <div class="header">
-        <img src="/assets/images/3355-logo.png" alt="3355">
+        <span style="font-size: 20pt; font-weight: 900; letter-spacing: -0.5px;">3355</span>
     </div>
     
-    <!-- 글 목록 -->
     <ul class="post-list">
         {% for post in site.posts %}
-        <a href="{{ post.url }}" class="post-item">
-            <div class="post-content">
-                <div class="post-title">{{ post.title }}</div>
-                <div class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
-            </div>
-            {% if post.thumbnail %}
-            <img src="{{ post.thumbnail }}" alt="" class="post-thumbnail">
-            {% endif %}
-        </a>
+        <li>
+            <a href="{{ post.url }}" class="post-item">
+                <div class="post-content">
+                    <div class="post-title">{{ post.title }}</div>
+                    <div class="post-excerpt">{{ post.excerpt }}</div>
+                </div>
+                {% if post.thumbnail %}
+                <img src="{{ post.thumbnail }}" alt="" class="post-thumbnail">
+                {% endif %}
+            </a>
+        </li>
         {% endfor %}
     </ul>
 </body>
