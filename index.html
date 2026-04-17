@@ -1,122 +1,119 @@
----
-layout: default
-title: Home
----
-
-<style>
-body {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-  padding: 0 20px 0 15px !important;
-}
-
-a, a:link, a:visited, a:hover, a:active {
-  color: #ffffff !important;
-  text-decoration: none;
-}
-
-a:hover {
-  opacity: 0.7;
-}
-
-.two-col {
-  display: flex;
-  gap: 0;
-  align-items: flex-start;
-}
-
-.col-left {
-  flex: 1;
-  padding-right: 10px;
-  border-right: 1px none #ffffff;
-}
-
-.col-right {
-  flex: 1;
-  padding-left: 10px;
-  text-align: right;
-}
-
-.two-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.two-col li {
-  margin: 0;
-  padding: 0;
-}
-
-.two-col h2 {
-  margin: 0;
-  padding: 0;
-  text-align: right;
-}
-
-@keyframes slide {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes slideReverse {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-</style>
-
-<div class="two-col" style="margin-top: 10px;">
-  <div class="col-left">
-    <h1 style="font-size: 18pt; font-weight: normal; line-height: 1.1; margin: 0 0 5px 0;">
-      <a href="/">김진본의<br>이모저모</a>
-    </h1>
-    <div style="overflow: hidden; width: 75px; margin: 0 0 5px 0; font-size: 11pt;">
-      <div style="display: inline-block; white-space: nowrap;">
-        <span style="display: inline-block; animation: slide 8s linear infinite;">
-          ● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;● ■ ▲ ■&nbsp;&nbsp;
-        </span>
-      </div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3355</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial Unicode MS', Arial, sans-serif;
+            font-size: 16pt;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 헤더 */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #000;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 48pt;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        
+        /* 글 목록 */
+        .post-list {
+            list-style: none;
+        }
+        
+        .post-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px 0;
+            border-bottom: 1px solid #e0e0e0;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .post-item:hover {
+            background: #fafafa;
+        }
+        
+        .post-content {
+            flex: 1;
+        }
+        
+        .post-title {
+            font-size: 16pt;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        
+        .post-excerpt {
+            font-size: 14pt;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .post-thumbnail {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36pt;
+            }
+            .post-thumbnail {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="header">
+            <h1>3355</h1>
+        </div>
+        
+        <!-- 글 목록 -->
+        <ul class="post-list">
+            {% for post in site.posts %}
+            <a href="{{ post.url }}" class="post-item">
+                <div class="post-content">
+                    <div class="post-title">{{ post.title }}</div>
+                    <div class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
+                </div>
+                {% if post.thumbnail %}
+                <img src="{{ post.thumbnail }}" alt="" class="post-thumbnail">
+                {% endif %}
+            </a>
+            {% endfor %}
+        </ul>
     </div>
-    <ul>
-    {% for post in site.posts %}
-      {% unless post.categories contains 'pocc' %}
-      <li>
-        <a href="{{ post.url }}">
-          {% assign total = site.posts.size %}
-          {% assign index = total | minus: forloop.index | modulo: 4 %}
-          {% if index == 0 %}●{% elsif index == 1 %}■{% elsif index == 2 %}▲{% else %}■{% endif %}
-          {{ post.title }}
-        </a>
-      </li>
-      {% endunless %}
-    {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-right">
-    <h2 style="font-size: 14pt; font-weight: bold; line-height: 1.1; color: #ffffff; text-align: right;">
-      portraits of<br>contemporary creators
-    </h2>
-    <div style="overflow: hidden; width: 100px; margin: 5px 0 5px auto; font-size: 14pt;">
-      <div style="display: inline-block; white-space: nowrap;">
-        <span style="display: inline-block; animation: slide 15s linear infinite;">
-          ✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;✦ ✧ ✦ ✧&nbsp;&nbsp;
-        </span>
-      </div>
-    </div>
-    <ul>
-    {% for post in site.posts %}
-      {% if post.categories contains 'pocc' %}
-      <li>
-        <a href="{{ post.url }}">
-          {% assign total = site.posts.size %}
-          {% assign index = total | minus: forloop.index | modulo: 4 %}
-          {% if index == 0 %}✧{% elsif index == 1 %}✦{% elsif index == 2 %}✧{% else %}✦{% endif %}
-          {{ post.title }}
-        </a>
-      </li>
-      {% endif %}
-    {% endfor %}
-    </ul>
-  </div>
-</div>
+</body>
+</html>
