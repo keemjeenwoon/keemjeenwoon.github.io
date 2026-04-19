@@ -8,7 +8,7 @@ layout: default
 
     {% assign hero = site.posts.first %}
     {% if hero %}
-    <section class="hero">
+    <section class="hero" style="grid-column: span 2;">
       <a href="{{ hero.url | relative_url }}" class="hero-img">
         {% if hero.image %}
           <img src="{{ hero.image | relative_url }}" alt="{{ hero.title }}">
