@@ -230,7 +230,7 @@ main {
 /* ── POST ── */
 .post-wrap {
   max-width: var(--body-width);
-  margin: 0 auto;
+  margin: 0;
   padding: 1.25rem 1.25rem 2rem;
 }
 
