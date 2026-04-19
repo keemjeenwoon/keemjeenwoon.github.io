@@ -1,118 +1,338 @@
----
----
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>삼삼오오</title>
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial Unicode MS', Arial, sans-serif;
-            font-size: 16pt;
-            max-width: 390px;
-            margin: 0px;
-            padding: 0 10px;
-            background: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-        }
-        
-        @media (min-width: 768px) {
-            body {
-                max-width: 390px;
-                margin: 0px 0px 0px calc((100vw - 720px) / 2 + 10px);
-            }
-        }
-        
-        .header {
-            text-align: center;
-            padding: 10px 0 5px;
-            margin-bottom: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삼삼오오</title>
+  <style>
+    @font-face {
+      font-family: 'KoPubWorldDotum';
+      src: url('fonts/KoPubWorldDotumBold.woff2') format('woff2'),
+           url('fonts/KoPubWorldDotumBold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+    }
 
-        .header-line {
-            border: none;
-            border-top: 2px solid #000;
-            margin: 8px 0 20px 0;
-        }
-        
-        .post-list {
-            list-style: none;
-        }
-        
-        .post-item {
-            display: flex;
-            gap: 15px;
-            padding: 12px 0;
-            border-bottom: 1px solid #e0e0e0;
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .post-item:hover {
-            background: #fafafa;
-        }
-        
-        .post-content {
-            flex: 1;
-        }
-        
-        .post-title {
-            font-size: 16pt;
-            font-weight: 600;
-            line-height: 1.4;
-            margin-bottom: 6px;
-        }
-        
-        .post-excerpt {
-            font-size: 13pt;
-            color: #444;
-            line-height: 1.5;
-        }
-        
-        .post-thumbnail {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        
-        @media (max-width: 768px) {
-            .post-thumbnail {
-                width: 60px;
-                height: 60px;
-            }
-        }
-    </style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --font: 'KoPubWorldDotum', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      --color-bg: #ffffff;
+      --color-text: #111111;
+      --color-muted: #888888;
+      --color-faint: #bbbbbb;
+      --color-border: #e0e0e0;
+      --letter-spacing: -0.05em;
+    }
+
+    body {
+      font-family: var(--font);
+      font-weight: 700;
+      letter-spacing: var(--letter-spacing);
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: .5rem 1.25rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .logo {
+      margin-bottom: .5rem;
+      display: inline-block;
+    }
+
+    .logo img {
+      height: 24px;
+      display: block;
+    }
+
+    /* fallback if no logo image */
+    .logo-text {
+      font-size: 20px;
+      letter-spacing: var(--letter-spacing);
+    }
+
+    nav {
+      display: flex;
+      margin: 0 -1.25rem;
+      padding: 0 1.25rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    nav a {
+      font-size: 11px;
+      padding: 5px 9px;
+      color: var(--color-muted);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--color-text);
+      border-bottom-color: var(--color-text);
+    }
+
+    nav a.nav-all img {
+      height: 14px;
+      display: block;
+    }
+
+    /* fallback */
+    nav a.nav-all .nav-all-text {
+      font-size: 11px;
+    }
+
+    /* ── MAIN ── */
+    main {
+      padding: .5rem 1.25rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .6rem;
+      margin-bottom: .5rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .hero-img {
+      position: relative;
+      border-radius: 3px;
+      overflow: hidden;
+      aspect-ratio: 5 / 3;
+      background: #f0f0f0;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      font-size: 9px;
+      background: rgba(255,255,255,.92);
+      color: #555;
+      padding: 2px 5px;
+      border-radius: 2px;
+      letter-spacing: var(--letter-spacing);
+      font-weight: 700;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .tag {
+      font-size: 10px;
+      color: var(--color-muted);
+    }
+
+    .hero-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: var(--letter-spacing);
+    }
+
+    .hero-excerpt {
+      font-size: 11.5px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--color-muted);
+    }
+
+    .meta {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-faint);
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 10px;
+      color: var(--color-faint);
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: .45rem;
+    }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .6rem;
+    }
+
+    .card-img {
+      aspect-ratio: 3 / 2;
+      border-radius: 3px;
+      overflow: hidden;
+      background: #f0f0f0;
+      margin-bottom: 5px;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-tag {
+      font-size: 9px;
+      color: var(--color-faint);
+      margin-bottom: 2px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: var(--letter-spacing);
+      margin-bottom: 2px;
+    }
+
+    .card-date {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-faint);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: .5rem;
+      padding: .45rem 1.25rem;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    footer span {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--color-faint);
+    }
+
+    footer a {
+      color: var(--color-faint);
+    }
+
+    footer a:hover {
+      color: var(--color-text);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <span style="font-size: 20pt; font-weight: 900; letter-spacing: -0.5px;">三三五五</span>
+
+  <header>
+    <a href="/" class="logo">
+      <!-- 로고 이미지 준비 시: <img src="assets/logo.png" alt="삼삼오오"> -->
+      <img src="assets/logo.png" alt="삼삼오오">
+    </a>
+    <nav>
+      <a href="/" class="nav-all active">
+        <!-- 전체 아이콘 이미지 준비 시: <img src="assets/nav-all.png" alt="전체"> -->
+        <img src="assets/nav-all.png" alt="전체">
+      </a>
+      <a href="/essay">에세이</a>
+      <a href="/interview">인터뷰</a>
+      <a href="/literature">문학</a>
+      <a href="/film">영화</a>
+      <a href="/place">장소</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- 히어로 -->
+    <section class="hero">
+      <div class="hero-img">
+        <img src="assets/hero.jpg" alt="">
+        <span class="hero-badge">이달의 글</span>
+      </div>
+      <div class="hero-text">
+        <div class="tag">비평 · 영화</div>
+        <h1 class="hero-title">기억은 편집된다—카를리토의 길에 대하여</h1>
+        <p class="hero-excerpt">브라이언 드 팔마는 회상을 재료로 삼는다. 이미 끝난 이야기를 처음부터 들려준다는 것, 그 형식이 곧 비극의 구조다.</p>
+        <div class="meta">2026. 03. 12 · 7분</div>
+      </div>
+    </section>
+
+    <!-- 최근 글 -->
+    <div class="section-label">최근 글</div>
+    <div class="grid">
+
+      <a href="#">
+        <div class="card-img"><img src="assets/post-1.jpg" alt=""></div>
+        <div class="card-tag">에세이</div>
+        <p class="card-title">표면이 진실을 감추는 방식에 대해</p>
+        <div class="card-date">2026. 02. 28</div>
+      </a>
+
+      <a href="#">
+        <div class="card-img"><img src="assets/post-2.jpg" alt=""></div>
+        <div class="card-tag">인터뷰</div>
+        <p class="card-title">Josef Tumari — 타슈켄트의 소리들</p>
+        <div class="card-date">2026. 02. 14</div>
+      </a>
+
+      <a href="#">
+        <div class="card-img"><img src="assets/post-3.jpg" alt=""></div>
+        <div class="card-tag">문학</div>
+        <p class="card-title">카세타, 혹은 테이프의 물성에 대하여</p>
+        <div class="card-date">2026. 01. 30</div>
+      </a>
+
     </div>
-    <hr class="header-line">
-    
-    <ul class="post-list">
-        {% for post in site.posts %}
-        <li>
-            <a href="{{ post.url }}" class="post-item">
-                <div class="post-content">
-                    <div class="post-title">{{ post.title }}</div>
-                    <div class="post-excerpt">{{ post.excerpt }}</div>
-                </div>
-                {% if post.thumbnail %}
-                <img src="{{ post.thumbnail }}" alt="" class="post-thumbnail">
-                {% endif %}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+
+  </main>
+
+  <footer>
+    <span>contact : <a href="mailto:kmjnwon@gmail.com">kmjnwon@gmail.com</a></span>
+  </footer>
+
 </body>
 </html>
