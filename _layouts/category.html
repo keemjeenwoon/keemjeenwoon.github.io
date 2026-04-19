@@ -6,6 +6,20 @@ layout: default
 
 <main>
 
+  {% if page.category == 'interview' %}
+
+  <div class="interview-list">
+    {% for post in posts %}
+    <a href="{{ post.url | relative_url }}" class="interview-cover">
+      {% if post.image %}
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+
+  {% else %}
+
   <div class="cat-list">
     {% for post in posts %}
     <div class="cat-row">
@@ -24,5 +38,7 @@ layout: default
     </div>
     {% endfor %}
   </div>
+
+  {% endif %}
 
 </main>

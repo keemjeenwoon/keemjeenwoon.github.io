@@ -470,3 +470,20 @@ footer a:hover { color: var(--color-text); }
   object-fit: contain;
   background: #f8f8f8;
 }
+
+/* ── INTERVIEW LIST ── */
+.interview-list {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.interview-cover {
+  display: block;
+}
+
+.interview-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
