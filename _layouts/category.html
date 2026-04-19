@@ -15,10 +15,7 @@ layout: default
         {% endif %}
       </div>
       <div class="hero-text">
-        <div class="hero-meta-top">
-            <span class="tag">{{ post.category_label }}</span>
-            <span class="meta">{{ post.date | date: "%Y. %m. %d" }}</span>
-        </div>
+        <div class="meta">{{ post.date | date: "%Y. %m. %d" }}</div>
         <h2 class="hero-title">{{ post.title }}</h2>
         <p class="hero-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
       </div>
