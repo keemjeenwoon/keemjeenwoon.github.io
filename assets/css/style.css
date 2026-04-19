@@ -44,7 +44,8 @@ a {
 
 /* ── HEADER ── */
 header {
-  padding: .5rem 25% 0 1.25rem;
+  padding: .5rem 0 0 1.25rem;
+  margin-right: 25%;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -294,7 +295,8 @@ main {
 
 /* ── FOOTER ── */
 footer {
-  padding: .45rem 25% .45rem 1.25rem;
+  padding: .45rem 0 .45rem 1.25rem;
+  margin-right: 25%;
   border-top: 1px solid var(--color-border);
   text-align: left;
 }
@@ -310,9 +312,9 @@ footer a:hover { color: var(--color-text); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 480px) {
-  header { padding: .5rem 1.25rem 0; }
+  header { padding: .5rem 1.25rem 0; margin-right: 0; }
   main { padding: .5rem 1.25rem; }
-  footer { padding: .45rem 1.25rem; }
+  footer { padding: .45rem 1.25rem; margin-right: 0; }
   .post-wrap { padding: 1.25rem 1.25rem 2rem; }
   .hero { grid-template-columns: 1fr; }
   .grid { grid-template-columns: repeat(2, 1fr); }
