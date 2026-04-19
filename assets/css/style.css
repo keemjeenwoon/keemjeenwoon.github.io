@@ -464,3 +464,7 @@ footer a:hover { color: var(--color-text); }
   gap: .5rem;
   align-items: center;
 }
+.hero-img--contain img {
+  object-fit: contain;
+  background: #f8f8f8;
+}

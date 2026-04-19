@@ -9,7 +9,7 @@ layout: default
   <div class="cat-list">
     {% for post in posts %}
     <div class="cat-row">
-      <a href="{{ post.url | relative_url }}" class="hero-img">
+      <a href="{{ post.url | relative_url }}" class="hero-img{% if page.category == 'interview' %} hero-img--contain{% endif %}">
         {% if post.image %}
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
         {% endif %}
