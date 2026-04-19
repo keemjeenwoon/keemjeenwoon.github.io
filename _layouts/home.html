@@ -37,8 +37,9 @@ layout: default
       <div class="card-meta-top">
         <span class="card-tag">{{ post.category_label }}</span>
         <span class="card-date">{{ post.date | date: "%Y. %m. %d" }}</span>
-      </div>
-      <p class="card-title">{{ post.title }}</p>
+        </div>
+        <p class="card-title">{{ post.title }}</p>
+        <p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
     </a>
     {% endfor %}
   </div>
