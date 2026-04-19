@@ -13,6 +13,7 @@ layout: default
         {% if hero.image %}
           <img src="{{ hero.image | relative_url }}" alt="{{ hero.title }}">
         {% endif %}
+        <span class="hero-badge">이달의 글</span>
         <div class="hero-overlay">
           <div class="hero-meta-top">
             <span class="tag">{{ hero.category_label }}</span>
