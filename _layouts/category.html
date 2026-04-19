@@ -6,38 +6,21 @@ layout: default
 
 <main>
 
-  {% assign hero = posts.first %}
-  {% if hero %}
-  <section class="hero">
-    <a href="{{ hero.url | relative_url }}" class="hero-img">
-      {% if hero.image %}
-        <img src="{{ hero.image | relative_url }}" alt="{{ hero.title }}">
-      {% endif %}
-      <span class="hero-badge">최신 글</span>
-    </a>
-    <div class="hero-text">
-      <div class="tag">{{ hero.category_label }}</div>
-      <h1 class="hero-title">
-        <a href="{{ hero.url | relative_url }}">{{ hero.title }}</a>
-      </h1>
-      <p class="hero-excerpt">{{ hero.excerpt | strip_html | truncatewords: 40 }}</p>
-      <div class="meta">{{ hero.date | date: "%Y. %m. %d" }}</div>
-    </div>
-  </section>
-  {% endif %}
-
   <div class="section-label">{{ page.title }}</div>
-  <div class="grid">
+  <div class="cat-list">
     {% for post in posts %}
-    <a href="{{ post.url | relative_url }}" class="card">
-      <div class="card-img">
+    <a href="{{ post.url | relative_url }}" class="cat-item">
+      <div class="cat-item-img">
         {% if post.image %}
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
         {% endif %}
       </div>
-      <div class="card-tag">{{ post.category_label }}</div>
-      <p class="card-title">{{ post.title }}</p>
-      <div class="card-date">{{ post.date | date: "%Y. %m. %d" }}</div>
+      <div class="cat-item-text">
+        <div class="tag">{{ post.category_label }}</div>
+        <p class="cat-item-title">{{ post.title }}</p>
+        <p class="cat-item-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+        <div class="meta">{{ post.date | date: "%Y. %m. %d" }}</div>
+      </div>
     </a>
     {% endfor %}
   </div>
