@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+  <header>
+    <a href="{{ '/' | relative_url }}" class="logo">
+      <!-- 로고 이미지 준비 시 아래 span을 img 태그로 교체 -->
+      <!-- <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }}"> -->
+      <span class="logo-text">{{ site.title }}</span>
+    </a>
+    <nav>
+      <a href="{{ '/' | relative_url }}" class="nav-all{% if page.url == '/' %} active{% endif %}">
+        <!-- 전체 이미지 준비 시 아래 span을 img 태그로 교체 -->
+        <!-- <img src="{{ '/assets/nav-all.png' | relative_url }}" alt="전체"> -->
+        <span class="nav-all-text">전체</span>
+      </a>
+      <a href="{{ '/essay/' | relative_url }}"{% if page.category == 'essay' %} class="active"{% endif %}>에세이</a>
+      <a href="{{ '/interview/' | relative_url }}"{% if page.category == 'interview' %} class="active"{% endif %}>인터뷰</a>
+      <a href="{{ '/literature/' | relative_url }}"{% if page.category == 'literature' %} class="active"{% endif %}>문학</a>
+      <a href="{{ '/film/' | relative_url }}"{% if page.category == 'film' %} class="active"{% endif %}>영화</a>
+      <a href="{{ '/place/' | relative_url }}"{% if page.category == 'place' %} class="active"{% endif %}>장소</a>
+    </nav>
+  </header>
+
+  {{ content }}
+
+  <footer>
+    <span>contact : <a href="mailto:{{ site.email }}">{{ site.email }}</a></span>
+  </footer>
+
+</body>
+</html>
