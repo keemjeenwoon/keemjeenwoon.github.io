@@ -6,7 +6,7 @@ layout: default
 
   <div class="home-top">
 
-    {% assign hero = site.posts.first %}
+    {% assign hero = site.posts | where_exp: "post", "post.category != 'interview'" | first %}
     {% if hero %}
     <section class="hero" style="grid-column: span 2;">
       <a href="{{ hero.url | relative_url }}" class="hero-img">
