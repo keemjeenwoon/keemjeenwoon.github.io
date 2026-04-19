@@ -446,3 +446,17 @@ footer a:hover { color: var(--color-text); }
   gap: .5rem;
   align-items: center;
 }
+
+.sidebar-img {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #f0f0f0;
+  margin-bottom: 5px;
+}
+
+.sidebar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

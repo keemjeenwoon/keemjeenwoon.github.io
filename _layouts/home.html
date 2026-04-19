@@ -29,6 +29,11 @@ layout: default
       {% assign interviews = site.posts | where: "category", "interview" %}
       {% for post in interviews limit: 5 %}
       <a href="{{ post.url | relative_url }}" class="sidebar-item">
+        {% if post.image %}
+        <div class="sidebar-img">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        </div>
+        {% endif %}
         <div class="sidebar-date">{{ post.date | date: "%Y. %m. %d" }}</div>
         <p class="sidebar-title">{{ post.title }}</p>
       </a>
@@ -38,7 +43,8 @@ layout: default
   </div>
 
   <div class="grid">
-    {% for post in site.posts offset: 1 limit: 6 %}
+    {% assign grid_posts = site.posts | where_exp: "post", "post.category != 'interview'" %}
+    {% for post in grid_posts offset: 1 limit: 6 %}
     <a href="{{ post.url | relative_url }}" class="card">
       <div class="card-img">
         {% if post.image %}
