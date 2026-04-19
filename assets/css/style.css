@@ -25,7 +25,6 @@
   --color-faint: #bbbbbb;
   --color-border: #e0e0e0;
   --letter-spacing: -0.05em;
-  --body-width: 640px;
 }
 
 body {
@@ -45,7 +44,7 @@ a {
 
 /* ── HEADER ── */
 header {
-  padding: .5rem 1.25rem 0;
+  padding: .5rem 25% 0 1.25rem;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -96,7 +95,7 @@ nav a.nav-all .nav-all-text { font-size: 16.5px; }
 
 /* ── MAIN (홈) ── */
 main {
-  padding: .5rem 1.25rem;
+  padding: .5rem 25% .5rem 1.25rem;
 }
 
 /* 히어로 */
@@ -229,9 +228,9 @@ main {
 
 /* ── POST ── */
 .post-wrap {
-  max-width: var(--body-width);
+  max-width: 100%;
   margin: 0;
-  padding: 1.25rem 1.25rem 2rem;
+  padding: 1.25rem 25% 2rem 1.25rem;
 }
 
 .post-hero {
@@ -295,9 +294,9 @@ main {
 
 /* ── FOOTER ── */
 footer {
-  padding: .45rem 1.25rem;
+  padding: .45rem 25% .45rem 1.25rem;
   border-top: 1px solid var(--color-border);
-  text-align: center;
+  text-align: left;
 }
 
 footer span {
@@ -311,6 +310,10 @@ footer a:hover { color: var(--color-text); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 480px) {
+  header { padding: .5rem 1.25rem 0; }
+  main { padding: .5rem 1.25rem; }
+  footer { padding: .45rem 1.25rem; }
+  .post-wrap { padding: 1.25rem 1.25rem 2rem; }
   .hero { grid-template-columns: 1fr; }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .post-title { font-size: 24px; }
