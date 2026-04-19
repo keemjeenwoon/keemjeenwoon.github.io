@@ -4,27 +4,39 @@ layout: default
 
 <main>
 
-{% assign hero = site.posts.first %}
-{% if hero %}
-<section class="hero">
-  <a href="{{ hero.url | relative_url }}" class="hero-img">
-    {% if hero.image %}
-      <img src="{{ hero.image | relative_url }}" alt="{{ hero.title }}">
+  <div class="home-top">
+
+    {% assign hero = site.posts.first %}
+    {% if hero %}
+    <section class="hero">
+      <a href="{{ hero.url | relative_url }}" class="hero-img">
+        {% if hero.image %}
+          <img src="{{ hero.image | relative_url }}" alt="{{ hero.title }}">
+        {% endif %}
+        <div class="hero-overlay">
+          <div class="hero-meta-top">
+            <span class="tag">{{ hero.category_label }}</span>
+            <span class="meta">{{ hero.date | date: "%Y. %m. %d" }}</span>
+          </div>
+          <h1 class="hero-title">{{ hero.title }}</h1>
+          <p class="hero-excerpt">{{ hero.excerpt | strip_html | truncatewords: 40 }}</p>
+        </div>
+      </a>
+    </section>
     {% endif %}
-    <span class="hero-badge">최근 글</span>
-  </a>
-  <div class="hero-text">
-    <div class="hero-meta-top">
-      <span class="tag">{{ hero.category_label }}</span>
-      <span class="meta">{{ hero.date | date: "%Y. %m. %d" }}</span>
+
+    <div class="sidebar">
+      <div class="sidebar-label">인터뷰</div>
+      {% assign interviews = site.posts | where: "category", "interview" %}
+      {% for post in interviews limit: 5 %}
+      <a href="{{ post.url | relative_url }}" class="sidebar-item">
+        <div class="sidebar-date">{{ post.date | date: "%Y. %m. %d" }}</div>
+        <p class="sidebar-title">{{ post.title }}</p>
+      </a>
+      {% endfor %}
     </div>
-    <h1 class="hero-title">
-      <a href="{{ hero.url | relative_url }}">{{ hero.title }}</a>
-    </h1>
-    <p class="hero-excerpt">{{ hero.excerpt | strip_html | truncatewords: 40 }}</p>
+
   </div>
-</section>
-{% endif %}
 
   <div class="grid">
     {% for post in site.posts offset: 1 limit: 6 %}
@@ -37,9 +49,9 @@ layout: default
       <div class="card-meta-top">
         <span class="card-tag">{{ post.category_label }}</span>
         <span class="card-date">{{ post.date | date: "%Y. %m. %d" }}</span>
-        </div>
-        <p class="card-title">{{ post.title }}</p>
-        <p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+      </div>
+      <p class="card-title">{{ post.title }}</p>
+      <p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
     </a>
     {% endfor %}
   </div>
