@@ -9,16 +9,16 @@ layout: default
   <div class="section-label">{{ page.title }}</div>
   <div class="cat-list">
     {% for post in posts %}
-    <a href="{{ post.url | relative_url }}" class="cat-item">
-      <div class="cat-item-img">
+    <a href="{{ post.url | relative_url }}" class="hero cat-row">
+      <div class="hero-img">
         {% if post.image %}
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
         {% endif %}
       </div>
-      <div class="cat-item-text">
+      <div class="hero-text">
         <div class="tag">{{ post.category_label }}</div>
-        <p class="cat-item-title">{{ post.title }}</p>
-        <p class="cat-item-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+        <h2 class="hero-title">{{ post.title }}</h2>
+        <p class="hero-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
         <div class="meta">{{ post.date | date: "%Y. %m. %d" }}</div>
       </div>
     </a>
