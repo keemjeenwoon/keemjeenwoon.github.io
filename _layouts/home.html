@@ -26,7 +26,6 @@ layout: default
     {% endif %}
 
     <div class="sidebar">
-      <div class="sidebar-label">인터뷰</div>
       {% assign interviews = site.posts | where: "category", "interview" %}
       {% for post in interviews limit: 5 %}
       <a href="{{ post.url | relative_url }}" class="sidebar-item">
