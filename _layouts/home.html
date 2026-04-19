@@ -27,7 +27,7 @@ layout: default
 
     <div class="sidebar">
       {% assign interviews = site.posts | where: "category", "interview" %}
-      {% for post in interviews limit: 5 %}
+      {% for post in interviews limit: 1 %}
       <a href="{{ post.url | relative_url }}" class="sidebar-item">
         {% if post.image %}
         <div class="sidebar-img">
