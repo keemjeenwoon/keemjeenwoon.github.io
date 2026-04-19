@@ -8,18 +8,20 @@ layout: default
 
   <div class="cat-list">
     {% for post in posts %}
-    <a href="{{ post.url | relative_url }}" class="hero-img">
-  {% if post.image %}
-    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-  {% endif %}
-    <div class="hero-overlay">
-        <div class="hero-meta-top">
-        <span class="meta">{{ post.date | date: "%Y. %m. %d" }}</span>
+    <div class="cat-row">
+      <a href="{{ post.url | relative_url }}" class="hero-img">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        {% endif %}
+        <div class="hero-overlay">
+          <div class="hero-meta-top">
+            <span class="meta">{{ post.date | date: "%Y. %m. %d" }}</span>
+          </div>
+          <h2 class="hero-title">{{ post.title }}</h2>
+          <p class="hero-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
         </div>
-        <h2 class="hero-title">{{ post.title }}</h2>
-        <p class="hero-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+      </a>
     </div>
-    </a>
     {% endfor %}
   </div>
 
