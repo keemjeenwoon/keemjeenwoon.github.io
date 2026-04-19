@@ -4,6 +4,26 @@ layout: default
 
 <main>
 
+{% assign hero = site.posts.first %}
+{% if hero %}
+<section class="hero">
+  <a href="{{ hero.url | relative_url }}" class="hero-img">
+    {% if hero.image %}
+      <img src="{{ hero.image | relative_url }}" alt="{{ hero.title }}">
+    {% endif %}
+    <span class="hero-badge">이달의 글</span>
+  </a>
+  <div class="hero-text">
+    <div class="tag">{{ hero.category_label }}</div>
+    <h1 class="hero-title">
+      <a href="{{ hero.url | relative_url }}">{{ hero.title }}</a>
+    </h1>
+    <p class="hero-excerpt">{{ hero.excerpt | strip_html | truncatewords: 40 }}</p>
+    <div class="meta">{{ hero.date | date: "%Y. %m. %d" }}</div>
+  </div>
+</section>
+{% endif %}
+
   <div class="section-label">최근 글</div>
   <div class="grid">
     {% for post in site.posts limit: 6 %}
