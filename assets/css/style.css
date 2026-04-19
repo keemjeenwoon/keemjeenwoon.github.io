@@ -401,7 +401,9 @@ footer a:hover { color: var(--color-text); }
   .post-wrap { padding: 1.25rem 1.25rem 2rem; }
   .home-top { grid-template-columns: 1fr; }
   .hero { grid-column: 1 / -1; }
-  .sidebar { grid-column: 1 / -1; }
+  .sidebar .sidebar-img {
+    aspect-ratio: 3 / 4;
+  }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .post-title { font-size: 24px; }
   .post-body { font-size: 16px; }
