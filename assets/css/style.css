@@ -417,8 +417,9 @@ footer a:hover { color: var(--color-text); }
 
 /* ── CATEGORY LIST ── */
 .cat-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .6rem;
 }
 
 .cat-item {
@@ -466,7 +467,6 @@ footer a:hover { color: var(--color-text); }
 
 .cat-row {
   border-bottom: 1px solid var(--color-border);
-  margin-bottom: 1.5rem;
 }
 
 .hero-meta-top {
@@ -482,8 +482,8 @@ footer a:hover { color: var(--color-text); }
 
 /* ── INTERVIEW LIST ── */
 .interview-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: .6rem;
 }
 
