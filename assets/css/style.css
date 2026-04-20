@@ -212,12 +212,13 @@ main {
   background: #f0f0f0;
   margin-bottom: 5px;
   min-height: 0;
+  display: flex;
+  align-items: flex-start;
 }
 
 .sidebar-img img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
   display: block;
 }
 
