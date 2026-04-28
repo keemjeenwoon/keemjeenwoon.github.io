@@ -14,15 +14,17 @@ layout: default
           <img src="{{ hero.image | relative_url }}" alt="{{ hero.title }}">
         {% endif %}
         <span class="hero-badge">오늘의 글</span>
-        <div class="hero-overlay">
-          <div class="hero-meta-top">
-            <span class="tag">{{ hero.category_label }}</span>
-            <span class="meta">{{ hero.date | date: "%Y. %m. %d" }}</span>
-          </div>
-          <h1 class="hero-title">{{ hero.title }}</h1>
-          <p class="hero-excerpt">{{ hero.excerpt | strip_html | truncatewords: 40 }}</p>
-        </div>
       </a>
+      <div class="hero-text">
+        <div class="hero-meta-top">
+          <span class="tag">{{ hero.category_label }}</span>
+          <span class="meta">{{ hero.date | date: "%Y. %m. %d" }}</span>
+        </div>
+        <h1 class="hero-title">
+          <a href="{{ hero.url | relative_url }}">{{ hero.title }}</a>
+        </h1>
+        <p class="hero-excerpt">{{ hero.excerpt | strip_html | truncatewords: 40 }}</p>
+      </div>
     </section>
     {% endif %}
 

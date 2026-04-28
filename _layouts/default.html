@@ -33,16 +33,13 @@
         <span></span><span></span><span></span>
       </button>
       <a href="{{ '/' | relative_url }}" class="logo">
-        <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }}">
+        <img src="{{ '/assets/nav-all.png' | relative_url }}" alt="{{ site.title }}">
       </a>
       <a href="{{ '/interview/' | relative_url }}" class="mobile-pocc">POCC</a>
     </div>
 
     <!-- 모바일 드롭다운 메뉴 -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="{{ '/' | relative_url }}" onclick="toggleMenu()">
-        <img src="{{ '/assets/nav-all.png' | relative_url }}" alt="전체" style="height:14px;">
-      </a>
       <a href="{{ '/essay/' | relative_url }}" onclick="toggleMenu()">에세이</a>
       <a href="{{ '/interview/' | relative_url }}" onclick="toggleMenu()">인터뷰</a>
       <a href="{{ '/literature/' | relative_url }}" onclick="toggleMenu()">문학</a>
