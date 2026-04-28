@@ -9,19 +9,47 @@
 <body>
 
   <header>
-    <a href="{{ '/' | relative_url }}" class="logo">
-    <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }}">
-    </a>
-        <nav>
+
+    <!-- 데스크탑 헤더 -->
+    <div class="header-desktop">
+      <a href="{{ '/' | relative_url }}" class="logo">
+        <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }}">
+      </a>
+      <nav>
         <a href="{{ '/' | relative_url }}" class="nav-all{% if page.url == '/' %} active{% endif %}">
-        <img src="{{ '/assets/nav-all.png' | relative_url }}" alt="전체">
-         </a>
-      <a href="{{ '/essay/' | relative_url }}"{% if page.category == 'essay' %} class="active"{% endif %}>에세이</a>
-      <a href="{{ '/interview/' | relative_url }}"{% if page.category == 'interview' %} class="active"{% endif %}>인터뷰</a>
-      <a href="{{ '/literature/' | relative_url }}"{% if page.category == 'literature' %} class="active"{% endif %}>문학</a>
-      <a href="{{ '/film/' | relative_url }}"{% if page.category == 'film' %} class="active"{% endif %}>영화</a>
-      <a href="{{ '/place/' | relative_url }}"{% if page.category == 'place' %} class="active"{% endif %}>장소</a>
-    </nav>
+          <img src="{{ '/assets/nav-all.png' | relative_url }}" alt="전체">
+        </a>
+        <a href="{{ '/essay/' | relative_url }}"{% if page.category == 'essay' %} class="active"{% endif %}>에세이</a>
+        <a href="{{ '/interview/' | relative_url }}"{% if page.category == 'interview' %} class="active"{% endif %}>인터뷰</a>
+        <a href="{{ '/literature/' | relative_url }}"{% if page.category == 'literature' %} class="active"{% endif %}>문학</a>
+        <a href="{{ '/film/' | relative_url }}"{% if page.category == 'film' %} class="active"{% endif %}>영화</a>
+        <a href="{{ '/place/' | relative_url }}"{% if page.category == 'place' %} class="active"{% endif %}>장소</a>
+      </nav>
+    </div>
+
+    <!-- 모바일 헤더 -->
+    <div class="header-mobile">
+      <button class="hamburger" onclick="toggleMenu()" aria-label="메뉴">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="{{ '/' | relative_url }}" class="logo">
+        <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }}">
+      </a>
+      <a href="{{ '/interview/' | relative_url }}" class="mobile-pocc">POCC</a>
+    </div>
+
+    <!-- 모바일 드롭다운 메뉴 -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="{{ '/' | relative_url }}" onclick="toggleMenu()">
+        <img src="{{ '/assets/nav-all.png' | relative_url }}" alt="전체" style="height:14px;">
+      </a>
+      <a href="{{ '/essay/' | relative_url }}" onclick="toggleMenu()">에세이</a>
+      <a href="{{ '/interview/' | relative_url }}" onclick="toggleMenu()">인터뷰</a>
+      <a href="{{ '/literature/' | relative_url }}" onclick="toggleMenu()">문학</a>
+      <a href="{{ '/film/' | relative_url }}" onclick="toggleMenu()">영화</a>
+      <a href="{{ '/place/' | relative_url }}" onclick="toggleMenu()">장소</a>
+    </div>
+
   </header>
 
   {{ content }}
@@ -29,6 +57,13 @@
   <footer>
     <span>contact : <a href="mailto:{{ site.email }}">{{ site.email }}</a></span>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>

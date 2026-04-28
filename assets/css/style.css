@@ -494,3 +494,64 @@ footer a:hover { color: var(--color-text); }
   .post-title { font-size: 24px; }
   .post-body { font-size: 16px; }
 }
+
+/* ── MOBILE HEADER ── */
+.header-mobile { display: none; }
+
+@media (max-width: 480px) {
+  .header-desktop { display: none; }
+
+  .header-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 1.25rem;
+  }
+
+  .hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--color-text);
+  }
+
+  .mobile-pocc {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--color-text);
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: .5rem 1.25rem .75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text);
+    padding: .4rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+}
